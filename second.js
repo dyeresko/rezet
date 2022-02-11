@@ -6,7 +6,7 @@ function flat(array, res = [])
         {
             flat(array[i], res);
         }
-        else if (typeof array[i] == "number")
+        else if (Number.isInteger(array[i])) 
         {
             res.push(array[i]);
         }
@@ -14,6 +14,6 @@ function flat(array, res = [])
     return res
 }
 
-let arr = [[1, 2], 3, [4, [5, [6], ['foo', 'bar']]]];
+let arr = [[1.2, 2], 3, [4, [5, [6], ['foo', 'bar']]]];
 ar = flat(arr);
 console.log(ar);

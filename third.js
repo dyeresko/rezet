@@ -14,7 +14,7 @@ function isValidHttpUrl(string) {
 function convertMarkDownToHTML(text)
 {
     
-    let elements = text.match(/\[.*?\)/g);
+    let elements = text.match(/\[(.*?)\]\((.*?)\)/g);
       if( elements != null && elements.length > 0){
         for(el of elements){
           let txt = el.match(/\[(.*?)\]/)[1];//get only the txt
@@ -29,5 +29,5 @@ function convertMarkDownToHTML(text)
     
 }
 
-let t = "Hey all! Check [my new site](http://mysite.com)! [not a link](javascript:console.log('hello'))";
+let t = "Hey all! Check [my new site](http://mysite.com)! [not a link](javascript:console.log('hello')) [a(http://mysite.com)";
 console.log(convertMarkDownToHTML(t));
